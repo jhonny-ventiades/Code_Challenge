@@ -13,7 +13,7 @@ Willdom Code Challenge by Jhonny Ventiades, This app show a list of stores and t
 2. Open it with Android Studio 3.5(preferably)
 3. Sync Gradle libraries and Run 
 
-##How to use
+## How to use
 Libraries configurations are in Project.gradle:
 
 ```bash
@@ -38,7 +38,7 @@ res-> dimens.xml  //modify activity padding, line heights
 ```
 
 
-##Test
+## Test
 This projects are using Instrumental test
 The class ExampleInstrumentedTest contain 2 test to run:
 ```bash
