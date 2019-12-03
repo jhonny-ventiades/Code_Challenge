@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.willdom.codechallenge"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //android X
+    implementation 'androidx.appcompat:appcompat:'+rootProject.androidxLibVersion
+    implementation 'androidx.core:core-ktx:'+rootProject.androidxLibVersion
+    annotationProcessor 'androidx.annotation:annotation:'+rootProject.androidxLibVersion
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+
+    //other support libraries
+    implementation 'com.google.android.material:material:1.2.0-alpha01'
+    implementation 'org.jetbrains.anko:anko-common:0.9'
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+
+    //test
+    //implementation 'com.android.support.test.espresso:espresso-idling-resource:3.0.2'
+    implementation 'androidx.test.espresso:espresso-idling-resource:'+ rootProject.espressoVersion
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:'+rootProject.runnerVersion
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:'+ rootProject.espressoVersion
+    androidTestImplementation 'androidx.test.espresso:espresso-core:'+ rootProject.espressoVersion
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:'+ rootProject.espressoVersion
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    //persistence
+    implementation "androidx.room:room-runtime:"+rootProject.roomPersistence
+    implementation "androidx.room:room-ktx:"+rootProject.roomPersistence
+    kapt "androidx.room:room-compiler:"+rootProject.roomPersistence
+    androidTestImplementation "androidx.room:room-testing:"+rootProject.roomPersistence
+}
